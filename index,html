@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SuzanVerse Gallery</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f3f3f3;
+    }
+    h1 {
+      color: #6C63FF;
+    }
+    .gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .template {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 200px;
+      text-align: center;
+    }
+    .template img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .template button {
+      background-color: #6C63FF;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Welcome to Suzan’s Surprise Website Gallery</h1>
+  <p>Explore creative templates and build your own website!</p>
+
+  <div class="gallery">
+    <div class="template">
+      <img src="https://via.placeholder.com/180x120.png?text=Preview" alt="Sample Preview">
+      <p>Birthday Glitter Site</p>
+      <button onclick="location.href='https://yourai.com/build?from=birthday-glitter'">Create Like This</button>
+    </div>
+  </div>
+</body>
+</html>
