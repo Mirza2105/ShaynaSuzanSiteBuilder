@@ -1,54 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SuzanVerse Gallery</title>
+  <title>SuzanVerse Site Builder</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 20px;
+      background-color: #f4f4f4;
+      padding: 40px;
+      color: #333;
     }
+
     h1 {
       color: #6C63FF;
+      font-size: 28px;
     }
+
+    p {
+      margin-bottom: 30px;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
+
     .template {
       background: white;
-      padding: 15px;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      width: 200px;
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 220px;
       text-align: center;
     }
+
     .template img {
-      max-width: 100%;
-      border-radius: 5px;
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
     }
+
     button {
-      background: #6C63FF;
+      background-color: #6C63FF;
       color: white;
       border: none;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 4px;
+      padding: 10px 16px;
+      border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #4c45c1;
+    }
+
+    #responseArea {
+      margin-top: 15px;
+      font-style: italic;
+      background: #e9e9ff;
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 600px;
+    }
+
+    .prompt-section {
+      margin-top: 50px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 8px;
+      font-size: 14px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Welcome to Suzan’s AI Website Gallery</h1>
-  <p>Explore templates and create your own personalized site!</p>
+
+  <h1>🎉 Welcome to Suzan's Surprise Site Generator</h1>
+  <p>Explore templates or describe your vision to bring it to life!</p>
 
   <div class="gallery">
     <div class="template">
-      <img src="https://via.placeholder.com/180x120.png?text=Preview" alt="Sample Preview">
-      <p>Birthday Glitter Site</p>
-      <button onclick="location.href='https://yourai.com/build?template=birthday-glitter'">Try This</button>
+      <img src="https://via.placeholder.com/180x120.png?text=Birthday+Glitter" alt="Birthday Glitter">
+      <p>Birthday Glitter Website</p>
+      <button onclick="alert('AI Builder Coming Soon!')">Try This Style</button>
     </div>
   </div>
+
+  <div class="prompt-section">
+    <h2>✨ Generate a Custom Greeting</h2>
+    <input type="text" id="userPrompt" placeholder="Describe your site idea..." />
+    <button onclick="sendPrompt()">Generate</button>
+
+    <div id="responseArea"></div>
+  </div>
+
+  <script>
+    async function sendPrompt() {
+      const prompt = document.getElementById("userPrompt").value;
+      const responseBox = document.getElementById("responseArea");
+
+      if (!prompt.trim()) {
+        responseBox.innerText = "Please enter a valid description.";
+        return;
+      }
+
+      responseBox.innerText = "Generating response...";
+
+      try {
+        const res = await fetch("http://localhost:5000/generate-description", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ prompt })
+        });
+
+        const data = await res.json();
+        responseBox.innerText = data.response || "No response received.";
+      } catch (err) {
+        responseBox.innerText = "Error connecting to AI backend.";
+        console.error(err);
+      }
+    }
+  </script>
+
 </body>
 </html>
