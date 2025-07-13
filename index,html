@@ -4,50 +4,50 @@
   <title>SuzanVerse Gallery</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
       padding: 20px;
-      background-color: #f3f3f3;
     }
     h1 {
       color: #6C63FF;
     }
     .gallery {
       display: flex;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 20px;
     }
     .template {
-      background-color: white;
+      background: white;
       padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      width: 200px;
       text-align: center;
     }
     .template img {
       max-width: 100%;
       border-radius: 5px;
     }
-    .template button {
-      background-color: #6C63FF;
+    button {
+      background: #6C63FF;
       color: white;
       border: none;
       padding: 10px;
       margin-top: 10px;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Welcome to Suzan’s Surprise Website Gallery</h1>
-  <p>Explore creative templates and build your own website!</p>
+  <h1>🎉 Welcome to Suzan’s AI Website Gallery</h1>
+  <p>Explore templates and create your own personalized site!</p>
 
   <div class="gallery">
     <div class="template">
       <img src="https://via.placeholder.com/180x120.png?text=Preview" alt="Sample Preview">
       <p>Birthday Glitter Site</p>
-      <button onclick="location.href='https://yourai.com/build?from=birthday-glitter'">Create Like This</button>
+      <button onclick="location.href='https://yourai.com/build?template=birthday-glitter'">Try This</button>
     </div>
   </div>
 </body>
